@@ -25,9 +25,9 @@
       "git_email": "seat-breaker@factory.local",
       "git_user": "seat-breaker",
       "mandate": "mandates/breaker.md",
-      "model": "env:FEATHERLESS_MODEL",
+      "model": "env:GROQ_MODEL",
       "name": "seat-breaker",
-      "provider": "featherless",
+      "provider": "groq",
       "role": "breaker",
       "runtime": "coding-agent"
     },

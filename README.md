@@ -10,8 +10,8 @@ counterexample. Every counterexample becomes a permanent test that gates all lat
 ## Quickstart (3 commands)
 
 ```bash
-cp .env.example .env                 # then fill in the Featherless values
-bash scripts/hour0_smoke.sh          # egress, Python, Featherless, agent-drive, room-export probes
+cp .env.example .env                 # then fill in the Groq values
+bash scripts/hour0_smoke.sh          # egress, Python, Groq, agent-drive, room-export probes
 bash scripts/verify.sh               # quick mode, under 90 s (script is written in Milestone 3)
 ```
 

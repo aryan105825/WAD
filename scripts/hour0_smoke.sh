@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 # @exports: CLI: bash scripts/hour0_smoke.sh  (no flags)
 # @imports: none (reads .env at repo root if present)
-# @env: FEATHERLESS_API_KEY
-# @env: FEATHERLESS_BASE_URL
-# @env: FEATHERLESS_MODEL
+# @env: GROQ_API_KEY
+# @env: GROQ_BASE_URL
+# @env: GROQ_MODEL
 # @env: FACTORY_DRIVER_IMAGE
-# @schema: stdout lines "PASS|FAIL|MANUAL H<n> <detail>"; H1 docker+egress, H2 python, H3 Featherless, H4 agent drive (manual), H5 room export (manual unless fixture exists)
+# @schema: stdout lines "PASS|FAIL|MANUAL H<n> <detail>"; H1 docker+egress, H2 python, H3 Groq, H4 agent drive (manual), H5 room export (manual unless fixture exists)
 # @schema: exit 0 when no probe FAILs (MANUAL steps do not fail but are listed at the end); exit 1 otherwise
 set -u
 
@@ -17,11 +17,11 @@ if [ -f "$ROOT/.env" ]; then
   set +a
 fi
 
-FEATHERLESS_API_KEY="${FEATHERLESS_API_KEY:-}"
-FEATHERLESS_BASE_URL="${FEATHERLESS_BASE_URL:-https://api.featherless.ai/v1}"
-FEATHERLESS_MODEL="${FEATHERLESS_MODEL:-}"
+GROQ_API_KEY="${GROQ_API_KEY:-}"
+GROQ_BASE_URL="${GROQ_BASE_URL:-https://api.groq.com/openai/v1}"
+GROQ_MODEL="${GROQ_MODEL:-}"
 DRIVER_IMAGE="${FACTORY_DRIVER_IMAGE:-python:3.12.7-slim}"
-export FEATHERLESS_API_KEY FEATHERLESS_BASE_URL FEATHERLESS_MODEL
+export GROQ_API_KEY GROQ_BASE_URL GROQ_MODEL
 
 FAILS=0
 MANUALS=""
@@ -41,16 +41,20 @@ sys.exit(1)'
 
 read -r -d '' H3_PY <<'PY'
 import json, os, sys, urllib.error, urllib.request
-base = os.environ["FEATHERLESS_BASE_URL"].rstrip("/")
+base = os.environ["GROQ_BASE_URL"].rstrip("/")
 payload = {
-    "model": os.environ["FEATHERLESS_MODEL"],
+    "model": os.environ["GROQ_MODEL"],
     "messages": [{"role": "user", "content": "Reply with the single word: ok"}],
     "max_tokens": 8,
 }
 request = urllib.request.Request(
     base + "/chat/completions",
     data=json.dumps(payload).encode("utf-8"),
-    headers={"Content-Type": "application/json", "Authorization": "Bearer " + os.environ["FEATHERLESS_API_KEY"]},
+    headers={
+        "Content-Type": "application/json",
+        "Authorization": "Bearer " + os.environ["GROQ_API_KEY"],
+        "User-Agent": "ratchet-hour0-smoke/1.0",
+    },
     method="POST",
 )
 try:
@@ -68,7 +72,7 @@ try:
 except (ValueError, KeyError, IndexError, TypeError) as exc:
     print("HTTP %d but the body is not an OpenAI-style chat completion (%s)" % (status, exc))
     sys.exit(1)
-print("HTTP %d model=%s reply=%r" % (status, os.environ["FEATHERLESS_MODEL"], str(text)[:40]))
+print("HTTP %d model=%s reply=%r" % (status, os.environ["GROQ_MODEL"], str(text)[:40]))
 PY
 
 h1() {
@@ -118,12 +122,12 @@ h3() {
     fail H3 "python3 is needed to run this probe (see H2)."
     return
   fi
-  if [ -z "$FEATHERLESS_API_KEY" ]; then
-    fail H3 "FEATHERLESS_API_KEY is not set. Copy .env.example to .env and fill it in."
+  if [ -z "$GROQ_API_KEY" ]; then
+    fail H3 "GROQ_API_KEY is not set. Copy .env.example to .env and fill it in."
     return
   fi
-  if [ -z "$FEATHERLESS_MODEL" ]; then
-    fail H3 "FEATHERLESS_MODEL is not set. Put a model id from your Featherless account in .env."
+  if [ -z "$GROQ_MODEL" ]; then
+    fail H3 "GROQ_MODEL is not set. Put a model id from your Groq account in .env."
     return
   fi
   local out
@@ -135,8 +139,8 @@ h3() {
 }
 
 h4() {
-  manual H4 "drive the Featherless model from a BAND-supported coding-agent runtime:"
-  printf '       1. In BAND Desktop, create a seat whose coding-agent runtime points at %s with model %s.\n' "$FEATHERLESS_BASE_URL" "${FEATHERLESS_MODEL:-<unset>}"
+  manual H4 "drive the Groq model from a BAND-supported coding-agent runtime:"
+  printf '       1. In BAND Desktop, create a seat whose coding-agent runtime points at %s with model %s.\n' "$GROQ_BASE_URL" "${GROQ_MODEL:-<unset>}"
   printf '       2. Dispatch a one-line task (create a file and commit it) and confirm the seat edits and commits.\n'
   printf '       3. If the runtime cannot use a custom OpenAI-compatible endpoint, set seat-breaker to a different native\n'
   printf '          model family in seats.json (provider "native") instead.\n'

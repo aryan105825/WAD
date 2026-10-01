@@ -10,9 +10,9 @@ at design time (see "Assumptions"). Confirm each in hour 0 and edit this file to
 ## 1. Stand-up steps (fresh clone to first dispatch)
 
 1. Prerequisites: Ubuntu, Docker 24+, Python 3.12, git, BAND Desktop signed in.
-2. `cp .env.example .env` and fill `FEATHERLESS_API_KEY` and `FEATHERLESS_MODEL`.
+2. `cp .env.example .env` and fill `GROQ_API_KEY` and `GROQ_MODEL`.
 3. `bash scripts/hour0_smoke.sh`. Every probe must PASS (egress blocked, Python 3.12,
-   Featherless 200, plus the two manual steps H4 and H5). If H4 fails, move the Breaker to a
+   Groq 200, plus the two manual steps H4 and H5). If H4 fails, move the Breaker to a
    different native model family in `seats.json`.
 4. Create the four seats in BAND from `seats.json`. Each seat gets its mandate file
    (`mandates/<role>.md`) and its git identity (`seat-planner`, `seat-builder`,
@@ -38,7 +38,7 @@ then `bash scripts/verify.sh --full`, then commit `results/`.
 |---|---|---|---|
 | seat-planner | Slices the task into small items, writes falsifiable checks, writes `axes:` into each brief | Work that cannot be falsified is rejected before any code is written | Native coding agent |
 | seat-builder | Implements one item at a time, runs the gate before handoff | Single writer of product code keeps history legible | Native coding agent |
-| seat-breaker | Black-box attacker. Never edits product code. Rejects only with a seeded, replayable runner | A reviewer who cannot show a failing run cannot block work, which removes opinion-based rejection | Featherless model (different family from the Builder) |
+| seat-breaker | Black-box attacker. Never edits product code. Rejects only with a seeded, replayable runner | A reviewer who cannot show a failing run cannot block work, which removes opinion-based rejection | Groq-hosted model (different family from the Builder) |
 | seat-steward | Repo state, size and clarity review, promotion, green tags, revert on budget exhaustion | Someone must own forward motion and the right to go back | Native coding agent |
 
 Why the Breaker runs on a different model family: a builder and an attacker with the same
@@ -119,8 +119,8 @@ the same data with the commit it ran against. CLAIMS.md maps each claim to its c
 
 ## 8. Assumptions and known limits
 
-- Assumed at design time: 3 people, about 48 hours, one coding-agent subscription, Featherless
-  credits, the Pocketful track. **(confirm)** all of these in hour 0.
+- Assumed at design time: 3 people, about 48 hours, one coding-agent subscription, Groq API
+  key, the Pocketful track. **(confirm)** all of these in hour 0.
 - **(confirm)** the mandate file format, the room-export format, how a seat obtains a message
   reference, whether a fresh clean run counts as a rerun, whether builds must be offline, and the
   caps and timeouts from the challenge spec.
