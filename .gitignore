@@ -1,0 +1,14 @@
+# Secrets and local config
+.env
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Local scratch output (never evidence)
+logs/
+
+# NOTE: evidence/, ratchet/, results/ and room-export/ are deliberately NOT ignored.
+# They are the proof the factory produced and must be committed.
+.DS_Store

@@ -1,0 +1,14 @@
+{
+  "build_network": "default",
+  "cpus": 1.0,
+  "dockerfile": "Dockerfile",
+  "env": {
+    "CAPACITY": "5",
+    "MODE": "safe"
+  },
+  "health_path": "/health",
+  "memory": "512m",
+  "port": 8080,
+  "start_timeout_s": 30,
+  "waivers": []
+}

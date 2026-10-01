@@ -1,0 +1,45 @@
+{
+  "max_rework": 3,
+  "seats": [
+    {
+      "git_email": "seat-planner@factory.local",
+      "git_user": "seat-planner",
+      "mandate": "mandates/planner.md",
+      "model": "native-default",
+      "name": "seat-planner",
+      "provider": "native",
+      "role": "planner",
+      "runtime": "coding-agent"
+    },
+    {
+      "git_email": "seat-builder@factory.local",
+      "git_user": "seat-builder",
+      "mandate": "mandates/builder.md",
+      "model": "native-default",
+      "name": "seat-builder",
+      "provider": "native",
+      "role": "builder",
+      "runtime": "coding-agent"
+    },
+    {
+      "git_email": "seat-breaker@factory.local",
+      "git_user": "seat-breaker",
+      "mandate": "mandates/breaker.md",
+      "model": "env:FEATHERLESS_MODEL",
+      "name": "seat-breaker",
+      "provider": "featherless",
+      "role": "breaker",
+      "runtime": "coding-agent"
+    },
+    {
+      "git_email": "seat-steward@factory.local",
+      "git_user": "seat-steward",
+      "mandate": "mandates/steward.md",
+      "model": "native-default",
+      "name": "seat-steward",
+      "provider": "native",
+      "role": "steward",
+      "runtime": "coding-agent"
+    }
+  ]
+}

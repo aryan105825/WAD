@@ -1,0 +1,3 @@
+# Minimal allowlist for lint tests. "service" also appears in task.md on purpose (allow_hit).
+item
+service

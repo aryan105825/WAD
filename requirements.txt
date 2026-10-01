@@ -1,0 +1,4 @@
+# RATCHET kit: Python 3.12 standard library only. There are no third-party packages to install.
+# System requirements: Python >= 3.12, Docker >= 24, git, bash, tar.
+# If a third-party package is ever added it MUST be pinned here as name==x.y.z.
+# The driver container image is pinned in .env.example (FACTORY_DRIVER_IMAGE=python:3.12.7-slim).
