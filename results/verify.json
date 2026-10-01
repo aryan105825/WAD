@@ -7,7 +7,7 @@
     },
     {
       "id": "K1",
-      "measured": "Ran 4 tests in 0.182s (leaky fixture fails, clean passes)",
+      "measured": "Ran 4 tests in 0.203s (leaky fixture fails, clean passes)",
       "status": "PASS"
     },
     {
@@ -17,28 +17,28 @@
     },
     {
       "id": "K3",
-      "measured": "racy caught 10/10 seeds, safe false positives 0/10",
+      "measured": "racy caught 10/10, safe false positives 0/10 @59e3979 (cited from results/hammer.json)",
       "status": "PASS"
     },
     {
       "id": "K4",
-      "measured": "gate exit 0 on safe service",
-      "status": "PASS"
+      "measured": "deep kit check; run scripts/verify.sh --kit-only",
+      "status": "SKIP"
     },
     {
       "id": "K5",
-      "measured": "verdict=fail failed_checks=1",
-      "status": "PASS"
+      "measured": "deep kit check; run scripts/verify.sh --kit-only",
+      "status": "SKIP"
     },
     {
       "id": "K6",
-      "measured": "TCP 1.1.1.1:443 and DNS both blocked",
-      "status": "PASS"
+      "measured": "deep kit check; run scripts/verify.sh --kit-only",
+      "status": "SKIP"
     },
     {
       "id": "K7",
-      "measured": "throwaway repo: VIOLATED@a3cf6fc HELD@d3cf6ae",
-      "status": "PASS"
+      "measured": "deep kit check; run scripts/verify.sh --kit-only",
+      "status": "SKIP"
     },
     {
       "id": "RES",
@@ -77,12 +77,12 @@
     },
     {
       "id": "R1",
-      "measured": "no green/stage-N tags; stages are promoted with factory/bin/stage_advance.sh",
+      "measured": "results/stages.json missing; run scripts/verify.sh --run-only on the finished run and commit results/",
       "status": "FAIL"
     },
     {
       "id": "R2",
-      "measured": "no green/stage-N tags; stages are promoted with factory/bin/stage_advance.sh",
+      "measured": "results/stages.json missing; run scripts/verify.sh --run-only on the finished run and commit results/",
       "status": "FAIL"
     },
     {
@@ -91,8 +91,8 @@
       "status": "FAIL"
     }
   ],
-  "commit": "59e397972dcd796ca506eb3dbadeddb98c4eaaaa",
-  "duration_s": 37,
-  "mode": "full",
+  "commit": "4543b33e5237cd0e0718ec34b259e967569bd42b",
+  "duration_s": 0,
+  "mode": "quick",
   "ok": false
 }
