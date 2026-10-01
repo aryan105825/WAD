@@ -7,7 +7,7 @@
     },
     {
       "id": "K1",
-      "measured": "Ran 4 tests in 0.186s (leaky fixture fails, clean passes)",
+      "measured": "Ran 4 tests in 0.184s (leaky fixture fails, clean passes)",
       "status": "PASS"
     },
     {
@@ -17,82 +17,32 @@
     },
     {
       "id": "K3",
-      "measured": "racy caught 10/10, safe false positives 0/10 @bae00f9 (cited from results/hammer.json)",
+      "measured": "racy caught 10/10 seeds, safe false positives 0/10",
       "status": "PASS"
     },
     {
       "id": "K4",
-      "measured": "deep kit check; run scripts/verify.sh --kit-only",
-      "status": "SKIP"
+      "measured": "gate exit 0 on safe service",
+      "status": "PASS"
     },
     {
       "id": "K5",
-      "measured": "deep kit check; run scripts/verify.sh --kit-only",
-      "status": "SKIP"
+      "measured": "verdict=fail failed_checks=1",
+      "status": "PASS"
     },
     {
       "id": "K6",
-      "measured": "deep kit check; run scripts/verify.sh --kit-only",
-      "status": "SKIP"
+      "measured": "TCP 1.1.1.1:443 and DNS both blocked",
+      "status": "PASS"
     },
     {
       "id": "K7",
-      "measured": "deep kit check; run scripts/verify.sh --kit-only",
-      "status": "SKIP"
-    },
-    {
-      "id": "RES",
-      "measured": "2 result files cite existing commits",
+      "measured": "throwaway repo: VIOLATED@2c731be HELD@b49f537",
       "status": "PASS"
-    },
-    {
-      "id": "R6",
-      "measured": "435 tokens, 0 leaks, 0 code overlaps (warn)",
-      "status": "PASS"
-    },
-    {
-      "id": "R4",
-      "measured": "room-export/ missing; export the room after each stage",
-      "status": "FAIL"
-    },
-    {
-      "id": "R5",
-      "measured": "room-export/ missing; export the room after each stage",
-      "status": "FAIL"
-    },
-    {
-      "id": "R7",
-      "measured": "results/cost.json missing; run: python3 factory/bin/costreport.py --out results/cost.json --inject FACTORY.md",
-      "status": "FAIL"
-    },
-    {
-      "id": "R8",
-      "measured": "costreport inject failed: costreport: ERROR: evidence directory /home/aryan-rajput/PROJ/WAD/evidence not found. Run the factory first, or pass --evidence.",
-      "status": "FAIL"
-    },
-    {
-      "id": "R9",
-      "measured": "costreport: ERROR: evidence directory /home/aryan-rajput/PROJ/WAD/evidence not found. Run the factory first, or pass --evidence. ",
-      "status": "FAIL"
-    },
-    {
-      "id": "R1",
-      "measured": "results/stages.json missing; run scripts/verify.sh --run-only on the finished run and commit results/",
-      "status": "FAIL"
-    },
-    {
-      "id": "R2",
-      "measured": "results/stages.json missing; run scripts/verify.sh --run-only on the finished run and commit results/",
-      "status": "FAIL"
-    },
-    {
-      "id": "R3",
-      "measured": "verify-history exit 1: ratchet: ERROR: no fixed counterexamples to verify. Record at least one with 'ratchet.py fixed' first.",
-      "status": "FAIL"
     }
   ],
-  "commit": "6173b03892aa1785c465e6f84d05181e693c31a4",
-  "duration_s": 1,
-  "mode": "quick",
-  "ok": false
+  "commit": "1fb24b219c509d0396bcfec3a5c4afdbf63b6d17",
+  "duration_s": 36,
+  "mode": "kit-only",
+  "ok": true
 }
