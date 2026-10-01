@@ -7,7 +7,7 @@
     },
     {
       "id": "K1",
-      "measured": "Ran 4 tests in 0.190s (leaky fixture fails, clean passes)",
+      "measured": "Ran 4 tests in 0.189s (leaky fixture fails, clean passes)",
       "status": "PASS"
     },
     {
@@ -17,28 +17,28 @@
     },
     {
       "id": "K3",
-      "measured": "racy caught 10/10, safe false positives 0/10 @bae00f9 (cited from results/hammer.json)",
-      "status": "PASS"
+      "measured": "Docker unavailable; start Docker and re-run",
+      "status": "FAIL"
     },
     {
       "id": "K4",
-      "measured": "deep kit check; run scripts/verify.sh --kit-only",
-      "status": "SKIP"
+      "measured": "Docker unavailable; start Docker and re-run",
+      "status": "FAIL"
     },
     {
       "id": "K5",
-      "measured": "deep kit check; run scripts/verify.sh --kit-only",
-      "status": "SKIP"
+      "measured": "Docker unavailable; start Docker and re-run",
+      "status": "FAIL"
     },
     {
       "id": "K6",
-      "measured": "deep kit check; run scripts/verify.sh --kit-only",
-      "status": "SKIP"
+      "measured": "Docker unavailable; start Docker and re-run",
+      "status": "FAIL"
     },
     {
       "id": "K7",
-      "measured": "deep kit check; run scripts/verify.sh --kit-only",
-      "status": "SKIP"
+      "measured": "Docker unavailable; start Docker and re-run",
+      "status": "FAIL"
     },
     {
       "id": "RES",
@@ -52,12 +52,12 @@
     },
     {
       "id": "R4",
-      "measured": "tag factory-start missing; tag the frozen kit before the run",
+      "measured": "room-export/ missing; export the room after each stage",
       "status": "FAIL"
     },
     {
       "id": "R5",
-      "measured": "tag factory-start missing; tag the frozen kit before the run",
+      "measured": "room-export/ missing; export the room after each stage",
       "status": "FAIL"
     },
     {
@@ -77,22 +77,22 @@
     },
     {
       "id": "R1",
-      "measured": "results/stages.json missing; run scripts/verify.sh --run-only on the finished run and commit results/",
+      "measured": "Docker unavailable; start Docker and re-run",
       "status": "FAIL"
     },
     {
       "id": "R2",
-      "measured": "results/stages.json missing; run scripts/verify.sh --run-only on the finished run and commit results/",
+      "measured": "Docker unavailable; start Docker and re-run",
       "status": "FAIL"
     },
     {
       "id": "R3",
-      "measured": "verify-history exit 1: ratchet: ERROR: no fixed counterexamples to verify. Record at least one with 'ratchet.py fixed' first.",
+      "measured": "Docker unavailable; start Docker and re-run",
       "status": "FAIL"
     }
   ],
-  "commit": "bae00f9c83459b0615d8089f84ad92298b301f90",
-  "duration_s": 0,
-  "mode": "quick",
+  "commit": "d04d8e8adde4ece044742b486556bfcc7a74b99a",
+  "duration_s": 1,
+  "mode": "full",
   "ok": false
 }
