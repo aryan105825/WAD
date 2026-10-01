@@ -7,7 +7,7 @@
     },
     {
       "id": "K1",
-      "measured": "Ran 4 tests in 0.203s (leaky fixture fails, clean passes)",
+      "measured": "Ran 4 tests in 0.186s (leaky fixture fails, clean passes)",
       "status": "PASS"
     },
     {
@@ -17,7 +17,7 @@
     },
     {
       "id": "K3",
-      "measured": "racy caught 10/10, safe false positives 0/10 @59e3979 (cited from results/hammer.json)",
+      "measured": "racy caught 10/10, safe false positives 0/10 @bae00f9 (cited from results/hammer.json)",
       "status": "PASS"
     },
     {
@@ -42,13 +42,13 @@
     },
     {
       "id": "RES",
-      "measured": "1 result files cite existing commits",
+      "measured": "2 result files cite existing commits",
       "status": "PASS"
     },
     {
       "id": "R6",
-      "measured": "tasks/stage-N.md and tasks/_other_track.md must exist (paste the task text verbatim)",
-      "status": "FAIL"
+      "measured": "435 tokens, 0 leaks, 0 code overlaps (warn)",
+      "status": "PASS"
     },
     {
       "id": "R4",
@@ -91,8 +91,8 @@
       "status": "FAIL"
     }
   ],
-  "commit": "4543b33e5237cd0e0718ec34b259e967569bd42b",
-  "duration_s": 0,
+  "commit": "6173b03892aa1785c465e6f84d05181e693c31a4",
+  "duration_s": 1,
   "mode": "quick",
   "ok": false
 }
