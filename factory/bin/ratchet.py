@@ -122,7 +122,7 @@ def replay_one(cx_id: str, commit: str, cache: bool = False) -> tuple[bool, str]
     try:
         snap = tmp / "repo"
         snap.mkdir()
-        snapshot(sha, snap)
+        snapshot(sha, snap, cwd=ROOT)
         # The runner/model may not exist yet at the old commit: overlay them from HEAD.
         overlay = [(runner_src, snap / runner_rel)]
         model_rel = Path("ratchet") / "models" / f"{cx_id}_model.py"
@@ -317,7 +317,7 @@ def cmd_verify_history(a) -> int:
         )
     all_ok = all(c["ok"] for c in checked)
     try:
-        commit = head_commit()
+        commit = head_commit(cwd=ROOT)
     except RuntimeError as exc:
         die(f"cannot read HEAD to cite in results: {exc}. Make at least one commit first.")
     out = Path(a.out)
