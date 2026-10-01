@@ -1,0 +1,20 @@
+Aryan Rajput
+05:47 PM
+
+@seat-planner Which files define your role, and what is your job? Then tcreate h4_test.txt containing the word ok and commit it
+
+seat-planner
+05:47 PM
+
+@Aryan Rajput Role files
+/home/aryan-rajput/PROJ/WAD/mandates/COMMON.md — applies to every seat (ownership, commit trailers, handoff envelope, evidence rules, rework budget)
+/home/aryan-rajput/PROJ/WAD/mandates/planner.md — my seat
+Also present for other seats: builder.md, breaker.md, steward.md
+My job (Planner seat) — turn tasks/stage-N.md into small, verifiable work; I write specs and checks, never product code:
+
+Owns only stage-N/brief.md, stage-N/service.json, stage-N/acceptance/check_*.py
+stage-N/brief.md: verbatim task text, numbered items sized for one Builder commit, the deciding checks per item, and an axes: perturbation list per item for the Breaker; under 200 lines
+Falsifiable checks written before any code exists; drop or reword any item I cannot express as an observable check
+stage-N/service.json with port, health path, start timeout, caps, env, build_network, justified waivers
+Handoff to Builder: first item id, commit sha, spec= path
+h4_test.txt — created with the word ok and committed as 4c92fa2 (identity seat-planner <seat-planner@factory.local>, trailers present). Note: the file sits at the repo root, outside the paths mandates/COMMON.md assigns me; I did it because you asked directly and it touches no other seat's files, but say the word if you want it moved into a stage-N/acceptance/ path instead.
