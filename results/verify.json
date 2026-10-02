@@ -7,7 +7,7 @@
     },
     {
       "id": "K1",
-      "measured": "Ran 4 tests in 0.190s (leaky fixture fails, clean passes)",
+      "measured": "Ran 4 tests in 0.196s (leaky fixture fails, clean passes)",
       "status": "PASS"
     },
     {
@@ -37,11 +37,11 @@
     },
     {
       "id": "K7",
-      "measured": "throwaway repo: VIOLATED@393cdba HELD@c1453cd",
+      "measured": "throwaway repo: VIOLATED@7ad7f9f HELD@883d8b0",
       "status": "PASS"
     }
   ],
-  "commit": "6cd0c52202282864d51732cf213629af1e4c2b53",
+  "commit": "fc37078ddcf35f9c142510a1c3646b3792c42dd2",
   "duration_s": 36,
   "mode": "kit-only",
   "ok": true

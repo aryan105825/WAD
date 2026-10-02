@@ -39,8 +39,8 @@ then `bash scripts/verify.sh --full`, then commit `results/`.
 |---|---|---|---|
 | seat-planner | Slices the task into small items, writes falsifiable checks, writes `axes:` into each brief | Work that cannot be falsified is rejected before any code is written | OpenCode, `groq/openai/gpt-oss-120b` |
 | seat-builder | Implements one item at a time, runs the gate before handoff | Single writer of product code keeps history legible | OpenCode, `groq/openai/gpt-oss-120b` |
-| seat-breaker | Black-box attacker. Never edits product code. Rejects only with a seeded, replayable runner | A reviewer who cannot show a failing run cannot block work, which removes opinion-based rejection | OpenCode, `groq/llama-3.3-70b-versatile` (different family from the Builder) |
-| seat-steward | Repo state, size and clarity review, promotion, green tags, revert on budget exhaustion | Someone must own forward motion and the right to go back | OpenCode, `groq/llama-3.3-70b-versatile` |
+| seat-breaker | Black-box attacker. Never edits product code. Rejects only with a seeded, replayable runner | A reviewer who cannot show a failing run cannot block work, which removes opinion-based rejection | OpenCode, `groq/qwen/qwen3.8-27b` (different family from the Builder) |
+| seat-steward | Repo state, size and clarity review, promotion, green tags, revert on budget exhaustion | Someone must own forward motion and the right to go back | OpenCode, `groq/openai/gpt-oss-120b` |
 
 Why the Breaker runs on a different model family: a builder and an attacker with the same
 blind spots agree with each other. Different families make shared blind spots less likely.

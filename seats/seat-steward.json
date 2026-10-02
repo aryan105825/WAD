@@ -1,6 +1,7 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "model": "groq/llama-3.3-70b-versatile",
+  "model": "groq/openai/gpt-oss-120b",
+  "small_model": "groq/openai/gpt-oss-20b",
   "instructions": [
     "mandates/COMMON.md",
     "mandates/steward.md"
