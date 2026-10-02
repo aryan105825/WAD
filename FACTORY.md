@@ -14,9 +14,10 @@ at design time (see "Assumptions"). Confirm each in hour 0 and edit this file to
 3. `bash scripts/hour0_smoke.sh`. Every probe must PASS (egress blocked, Python 3.12,
    Groq 200, plus the two manual steps H4 and H5). If H4 fails, move the Breaker to a
    different native model family in `seats.json`.
-4. Create the four seats in BAND from `seats.json`. Each seat gets its mandate file
-   (`mandates/<role>.md`) and its git identity (`seat-planner`, `seat-builder`,
-   `seat-breaker`, `seat-steward`). **(confirm)** how BAND loads a mandate file.
+4. Create the four seats in BAND as custom ACP agents. Command: `seats/seat-<role>.sh`
+   (argument `acp`, working directory the repo root). Each launcher sets the seat's git
+   identity and starts OpenCode with `seats/seat-<role>.json`, which pins the Groq model and
+   loads `mandates/COMMON.md` plus `mandates/<role>.md`. See `seats/README.md`.
 5. `python3 factory/selftest/test_lint.py` and `bash scripts/verify.sh --kit-only`.
    Both must be green before the kit is frozen.
 6. Paste the task text verbatim into `tasks/stage-N.md` and the other track's text into
@@ -36,10 +37,10 @@ then `bash scripts/verify.sh --full`, then commit `results/`.
 
 | Seat | Role | Why it exists | Model |
 |---|---|---|---|
-| seat-planner | Slices the task into small items, writes falsifiable checks, writes `axes:` into each brief | Work that cannot be falsified is rejected before any code is written | Native coding agent |
-| seat-builder | Implements one item at a time, runs the gate before handoff | Single writer of product code keeps history legible | Native coding agent |
-| seat-breaker | Black-box attacker. Never edits product code. Rejects only with a seeded, replayable runner | A reviewer who cannot show a failing run cannot block work, which removes opinion-based rejection | Groq-hosted model (different family from the Builder) |
-| seat-steward | Repo state, size and clarity review, promotion, green tags, revert on budget exhaustion | Someone must own forward motion and the right to go back | Native coding agent |
+| seat-planner | Slices the task into small items, writes falsifiable checks, writes `axes:` into each brief | Work that cannot be falsified is rejected before any code is written | OpenCode, `groq/openai/gpt-oss-120b` |
+| seat-builder | Implements one item at a time, runs the gate before handoff | Single writer of product code keeps history legible | OpenCode, `groq/openai/gpt-oss-120b` |
+| seat-breaker | Black-box attacker. Never edits product code. Rejects only with a seeded, replayable runner | A reviewer who cannot show a failing run cannot block work, which removes opinion-based rejection | OpenCode, `groq/llama-3.3-70b-versatile` (different family from the Builder) |
+| seat-steward | Repo state, size and clarity review, promotion, green tags, revert on budget exhaustion | Someone must own forward motion and the right to go back | OpenCode, `groq/llama-3.3-70b-versatile` |
 
 Why the Breaker runs on a different model family: a builder and an attacker with the same
 blind spots agree with each other. Different families make shared blind spots less likely.

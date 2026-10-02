@@ -1,5 +1,6 @@
 {
   "$schema": "https://opencode.ai/config.json",
+  "model": "groq/openai/gpt-oss-120b",
   "instructions": [
     "mandates/COMMON.md",
     "mandates/planner.md"
