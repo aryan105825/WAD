@@ -36,7 +36,3 @@ Requirements: Python >= 3.12 (stdlib only), Docker >= 24, git, bash, tar.
 - FACTORY.md: stand-up steps, rationale, measured costs, detection and recovery (Milestone 3)
 - CLAIMS.md: each claim mapped to the check that verifies it (Milestone 3)
 
-## Status
-
-Milestone 1 is in progress: the library layer and hour-0 smoke script are written first; seats,
-selftest service and gate follow. Files not yet present are listed in the build manifest.
